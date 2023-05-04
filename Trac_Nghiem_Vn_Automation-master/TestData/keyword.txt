@@ -1,0 +1,5 @@
+robot -d results Tests/TracNghiemVN/LoginFunctionality.robot  ///đưa file report vào testsuite
+robot Trac_Nghiem_Vn_Automation-master ///Run folder
+robot LoginFunctionality.robot ///Run file test case
+robot -t "Verify login successfully" LoginFunctionality.robot
+

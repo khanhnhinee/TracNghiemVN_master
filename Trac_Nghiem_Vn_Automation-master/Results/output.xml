@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.2 on win32)" generated="20230502 18:44:23.384" rpa="false" schemaversion="3">
+<suite id="s1" name="LoginFunctionality" source="D:\Studies\School\Python\Automation\Trac_Nghiem_VN_Automation-master\Tests\TracNghiemVN\LoginFunctionality.robot">
+<test id="s1-t1" name="Verify login successfully" line="7">
+<kw name="Open TracNghiemVN main page" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${trac_nghiem_vn_ulr}</arg>
+<arg>${chrome_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230502 18:44:23.756" level="INFO">Opening browser 'chrome' to base url 'https://tracnghiem.vn/'.</msg>
+<status status="PASS" starttime="20230502 18:44:23.756" endtime="20230502 18:44:30.398"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230502 18:44:30.398" endtime="20230502 18:44:30.588"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230502 18:44:32.596" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230502 18:44:30.589" endtime="20230502 18:44:32.596"/>
+</kw>
+<status status="PASS" starttime="20230502 18:44:23.755" endtime="20230502 18:44:32.596"/>
+</kw>
+<kw name="Successful login action" library="LoginPage">
+<arg>seoyool2_</arg>
+<arg>123123</arg>
+<tag>Positive case</tag>
+<doc>This test case is simulates the login user story in successfull case</doc>
+<kw name="Redirect to login page" library="HeaderPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${login_button_header_page_hp}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230502 18:44:32.607" level="INFO">Clicking element '//button[@class='btn btn-outline-primary']'.</msg>
+<status status="PASS" starttime="20230502 18:44:32.605" endtime="20230502 18:44:33.614"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${login_button_lg}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230502 18:44:33.636" level="INFO">Current page contains element '//button[contains(text(),'Đăng nhập')]'.</msg>
+<status status="PASS" starttime="20230502 18:44:33.615" endtime="20230502 18:44:33.636"/>
+</kw>
+<status status="PASS" starttime="20230502 18:44:32.604" endtime="20230502 18:44:33.636"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${username_text_box_lg}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230502 18:44:33.638" level="INFO">Typing text 'seoyool2_' into text field '//input[@id='username']'.</msg>
+<status status="PASS" starttime="20230502 18:44:33.637" endtime="20230502 18:44:33.786"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${password_text_box_lg}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230502 18:44:33.787" level="INFO">Typing text '123123' into text field '//input[@id='password']'.</msg>
+<status status="PASS" starttime="20230502 18:44:33.786" endtime="20230502 18:44:33.912"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${login_button_lg}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230502 18:44:33.913" level="INFO">Clicking button '//button[contains(text(),'Đăng nhập')]'.</msg>
+<status status="PASS" starttime="20230502 18:44:33.912" endtime="20230502 18:44:38.382"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${user_option_dropdown_list_hp}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230502 18:44:38.416" level="INFO">Current page contains element '//div[@class='user-info d-flex align-items-center']'.</msg>
+<status status="PASS" starttime="20230502 18:44:38.382" endtime="20230502 18:44:38.416"/>
+</kw>
+<status status="PASS" starttime="20230502 18:44:32.604" endtime="20230502 18:44:38.417"/>
+</kw>
+<kw name="Finish Test" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230502 18:44:38.424" endtime="20230502 18:44:44.969"/>
+</kw>
+<status status="PASS" starttime="20230502 18:44:38.423" endtime="20230502 18:44:44.969"/>
+</kw>
+<status status="PASS" starttime="20230502 18:44:23.754" endtime="20230502 18:44:44.971"/>
+</test>
+<test id="s1-t2" name="Verify login Fails - Blank Username and Password" line="12">
+<kw name="Open TracNghiemVN login page" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${trac_nghiem_vn_login_page_ulr}</arg>
+<arg>${chrome_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230502 18:44:44.974" level="INFO">Opening browser 'chrome' to base url 'https://auth.tracnghiem.vn/auth/realms/tracnghiemvn/protocol/openid-connect/auth?client_id=web-auth-app&amp;scope=openid%20profile%20email&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Ftracnghiem.vn%2Fsignin-keycloak&amp;state=CfDJ8CVEsmsgg3BJtzBf5x9wLvezaYX6oDoF5BLcA2UEduptiKwFhHLXOt_CklWCLXXxFlUYoC_Nc6jp9W-oijebSylsX3iVAPOJwa4pnjLhX6s2IspbpnD5zypjWx0aO1rore3g-qQycEWRp4k-j4DezzeQbTHUf6Q4_Z18be-uxWhFLJU0p7E6wr0LBNg6pMvh9zNrbJxTO32XGDThfhEKHZyG4JGpl1qf7LxzGqf2Ui6UuxcbyTwriKvOzdOwCISakQyDEYcA3QdlcH2Uu0WF5Qv4APk9wYLxIk3f_nSn5wmGxwApy1m1KSl3OwB7yin2HA'.</msg>
+<status status="PASS" starttime="20230502 18:44:44.973" endtime="20230502 18:44:47.962"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230502 18:44:47.962" endtime="20230502 18:44:48.247"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230502 18:44:50.252" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230502 18:44:48.247" endtime="20230502 18:44:50.252"/>
+</kw>
+<status status="PASS" starttime="20230502 18:44:44.973" endtime="20230502 18:44:50.252"/>
+</kw>
+<kw name="Invalid login action" library="LoginPage">
+<arg>${EMPTY}</arg>
+<arg>${EMPTY}</arg>
+<arg>Tên đăng nhập hoặc mật khẩu không đúng</arg>
+<tag>Negative case</tag>
+<doc>This test case will perform invalid login scenarios</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${username_text_box_lg}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230502 18:44:50.270" level="INFO">Typing text '' into text field '//input[@id='username']'.</msg>
+<status status="PASS" starttime="20230502 18:44:50.269" endtime="20230502 18:44:50.374"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${password_text_box_lg}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230502 18:44:50.375" level="INFO">Typing text '' into text field '//input[@id='password']'.</msg>
+<status status="PASS" starttime="20230502 18:44:50.374" endtime="20230502 18:44:50.484"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${login_button_lg}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230502 18:44:50.485" level="INFO">Clicking button '//button[contains(text(),'Đăng nhập')]'.</msg>
+<status status="PASS" starttime="20230502 18:44:50.484" endtime="20230502 18:44:51.077"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${error_message_login_page_lg}</arg>
+<arg>${error_text}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230502 18:44:51.159" level="INFO">Element '//div[@id='input-error']' contains text 'Tên đăng nhập hoặc mật khẩu không đúng'.</msg>
+<status status="PASS" starttime="20230502 18:44:51.078" endtime="20230502 18:44:51.159"/>
+</kw>
+<status status="PASS" starttime="20230502 18:44:50.253" endtime="20230502 18:44:51.159"/>
+</kw>
+<kw name="Finish Test" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<msg timestamp="20230502 18:44:53.394" level="ERROR">When closing browser, received exception: Execution terminated by signal</msg>
+<msg timestamp="20230502 18:44:53.395" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="FAIL" starttime="20230502 18:44:51.160" endtime="20230502 18:44:53.395"/>
+</kw>
+<status status="FAIL" starttime="20230502 18:44:51.160" endtime="20230502 18:44:53.396">Execution terminated by signal</status>
+</kw>
+<status status="FAIL" starttime="20230502 18:44:44.972" endtime="20230502 18:44:53.396">Teardown failed:
+Execution terminated by signal</status>
+</test>
+<test id="s1-t3" name="Verify login Fails - Blank Username" line="16">
+<tag>robot:exit</tag>
+<status status="FAIL" starttime="20230502 18:44:53.397" endtime="20230502 18:44:53.399">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t4" name="Verify login Fails - Blank Password" line="20">
+<tag>robot:exit</tag>
+<status status="FAIL" starttime="20230502 18:44:53.401" endtime="20230502 18:44:53.401">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t5" name="Verify login Fails - Wrong Username" line="24">
+<tag>robot:exit</tag>
+<status status="FAIL" starttime="20230502 18:44:53.403" endtime="20230502 18:44:53.404">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t6" name="Verify login Fails - Wrong Password" line="28">
+<tag>robot:exit</tag>
+<status status="FAIL" starttime="20230502 18:44:53.405" endtime="20230502 18:44:53.406">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t7" name="Verify the working of login by google button" line="33">
+<tag>robot:exit</tag>
+<status status="FAIL" starttime="20230502 18:44:53.407" endtime="20230502 18:44:53.408">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t8" name="Verify the working of login by facebook button" line="38">
+<tag>robot:exit</tag>
+<status status="FAIL" starttime="20230502 18:44:53.410" endtime="20230502 18:44:53.411">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t9" name="Verify the working of forgot password button" line="43">
+<tag>robot:exit</tag>
+<status status="FAIL" starttime="20230502 18:44:53.412" endtime="20230502 18:44:53.413">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t10" name="Verify the working of sigup now button" line="48">
+<tag>robot:exit</tag>
+<status status="FAIL" starttime="20230502 18:44:53.414" endtime="20230502 18:44:53.415">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t11" name="Verify user can return to landing page by click on the icon" line="53">
+<tag>robot:exit</tag>
+<status status="FAIL" starttime="20230502 18:44:53.416" endtime="20230502 18:44:53.416">Test execution stopped due to a fatal error.</status>
+</test>
+<status status="FAIL" starttime="20230502 18:44:23.386" endtime="20230502 18:44:53.418"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="10" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="1" skip="0" info="combined" combined="NOT robot:exit">NOT robot:exit</stat>
+</tag>
+<suite>
+<stat pass="1" fail="10" skip="0" id="s1" name="LoginFunctionality">LoginFunctionality</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230502 18:44:53.394" level="ERROR">When closing browser, received exception: Execution terminated by signal</msg>
+</errors>
+</robot>
